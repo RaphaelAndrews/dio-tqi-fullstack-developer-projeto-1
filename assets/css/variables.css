@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    /*========== Colors ==========*/
+    /*Color mode HSL(hue, saturation, lightness)*/
+    /*
+            Orange: hsl(12, 100%, 50%)  
+            Blue: hsl(211, 100%, 48%)  
+            Cyan: hsl(170, 90%, 43%) 
+            Purple: hsl(250, 66%, 75%)
+            Teal: hsl(174, 63%, 62%)
+            Red: hsl(342, 100%, 50%) 
+            Red: hsl(348, 100%, 50%)
+            Blue: hsl(207, 90%, 72%)
+            Pink: hsl(356, 66%, 75%)
+            Yellow: hsl(46, 96%, 55%)
+            Yellow: hsl(41, 100%, 50%)
+            Black: hsl(0, 0%, 13%)
+            Grey: hsl(0, 0%, 38%)
+    */
+
+    --first-hue: 170;
+    --sat: 90%;
+    --lig: 43%;
+
+    --first-color: hsl(var(--first-hue), var(--sat), var(--lig));
+    --first-color-alt: hsl(var(--first-hue), var(--sat), 39%); /* -4% */
+    --second-color: hsl(255, 100%, 100%);
+    --third-color: hsl(240, 1%, 15%);
+    --fourth-color: hsla(255, 100%, 100%, .41);
+    --alternative-color: hsl(230, 6%, 18%);
+    --alternative-color-alt: hsl(230, 6%, 10%);
+    --text-color: hsl(0, 0%, 38%);
+    --links-color: hsl(0, 0%, 55%);
+    
+    /*========== Font and typography ==========*/
+    /*font-family: 'IBM Plex Mono', monospace;
+    font-family: 'Poppins', sans-serif;*/
+
+    --first-font: 'IBM Plex Mono', monospace;
+    --second-font: 'Poppins', sans-serif;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.75rem;
+    --h3-font-size: 1.25rem;
+    --h4-font-size: 1.125rem;
+    --normal-font-size: 1rem;
+    --tiny-font-size: .75rem;
+
+    /*========== Font weight ==========*/
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    --font-extrabold: 800;
+    --font-black: 900;
+
+    /*========== z index ==========*/
+    --z-after: -1;
+    --z-img: 1;
+    --z-fixed: 10;
+    --z-menu: 100;
+    --z-max: 101;
+}
+
+/*=============== RESPONSIVE ===============*/
+@media screen and (max-width: 320px) {
+    .nav__menu {
+        padding: 1rem 1.5rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    :root {
+        --h1-font-size: 2.5rem;
+        --h2-font-size: 2.25rem;
+        --h3-font-size: 1.75rem;
+        --h4-font-size: 1.5rem;
+        --normal-font-size: 1.25rem;
+        --tiny-font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    :root {
+        --h1-font-size: 2.75rem;
+        --h2-font-size: 2.5rem;
+        --h3-font-size: 2rem;
+        --h4-font-size: 1.75rem;
+        --nav-font-size: 1.25rem;
+        --normal-font-size: 1.5rem;
+        --tiny-font-size: 1.125rem;
+    }
+}

@@ -1,0 +1,264 @@
+@import 'variables.css';
+@import 'base.css';
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: var(--alternative-color);
+    z-index: var(--z-menu);
+}
+
+.header__box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__logo {
+    position: relative;
+    float: left;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__img {
+    width: 30px;
+    height: 35px;
+    vertical-align: middle;
+}
+
+.checkbox__toggle {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    float: left;
+    width: 80px;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    color: var(--fourth-color);
+}
+
+.checkbox {
+    height: 32px;
+    width: 32px;
+    display: grid;
+    place-items: center;
+    gap: .25rem;
+    cursor: pointer;
+    z-index: var(--z-max);
+    transition: 400ms ease-in-out 0s;
+}
+
+.trace-1,
+.trace-2,
+.trace-3 {
+    width: 24px;
+    height: 3px;
+    background-color: var(--first-color);
+    position: absolute;
+    transition: 0.5s ease-in-out;
+}
+
+.trace-1 {
+    top: 25px;
+    transform: rotate(0);
+}
+
+.trace-2 {
+    top: 32px;
+    transform: rotate(0);
+}
+
+.trace-3 {
+    top: 39px;
+    transform: rotate(0);
+}
+
+#toggle {
+    display: none;
+}
+
+/* ANIMAÇÃO DO MENU */
+
+#toggle:checked + .checkbox .trace-1 {
+    transform: rotate(45deg);
+    background-color: var(--first-color-alt);
+    top: 33px;
+}
+
+#toggle:checked + .checkbox .trace-2 {
+    transform:  translateX(100px);
+    width: 30px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+#toggle:checked + .checkbox .trace-3 {
+    transform: rotate(-45deg);
+    background-color: var(--first-color-alt);
+    top: 34px;
+}
+
+#toggle:checked + .checkbox {
+    background-color: var(--alternative-color);
+}
+
+#toggle:checked ~ .header__overlay{
+    right: 0;
+    left: 50%;
+    z-index: var(--z-menu);
+}
+
+#toggle:checked ~ .menu__items{
+    visibility: visible;
+    opacity: 1;
+}
+
+.header__menu {
+    font-family: var(--second-font);
+    font-size: 10px;
+    font-weight: var(--font-regular);
+    letter-spacing: 2px; 
+}
+
+.header__overlay {
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    right: -100%;
+    left: 100%;
+    top: 0;
+    bottom: 0;
+    background-color: var(--third-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    z-index: var(--z-menu);
+    transition: 400ms ease-in-out 0s;
+}
+
+.header__overlay::before {
+    content: '';
+    position: absolute;
+    height: 80px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: var(--alternative-color);
+}
+
+.header__nav___list {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.nav__item {
+    width: 100%;
+}
+
+.nav__link {
+    height: 40px;
+    line-height: 40px;
+    color: var(--fourth-color);
+    font-weight: var(--font-semibold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.active {
+    color: var(--first-color) !important;
+}
+
+.nav__link:hover,
+.nav__link:focus {
+    color: var(--first-color);
+}
+
+.overlay__links {
+    display: flex;
+    gap: 1rem;
+}
+
+.overlay__link,
+.header__link {
+    color: var(--fourth-color);
+    display: flex;
+    width: max-content;
+    padding: .5rem;
+    border: 1px solid rgba(255, 255, 255, 0.08); 
+}
+
+.overlay__link:hover,
+.header__link:hover {
+    border-radius: .5rem;
+    transition: .3s;
+    color: var(--first-color);
+}
+
+.header__links {
+    display: grid;
+    gap: 1rem;
+    position: absolute;
+    bottom: 8rem;
+    font-size: 1rem;
+}
+
+.header__links {
+    display: none;
+}
+
+/*=============== RESPONSIVE ===============*/
+@media screen and (min-width: 780px) {
+    .header__nav___list {
+        gap: 1rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .header {
+        width: 80px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .header__box {
+        display: grid;
+    }
+
+    .header__logo {
+        position: fixed;
+        bottom: 0;
+        background-color: var(--first-color);
+    }
+
+    #toggle:checked + .checkbox .trace-2 {
+        transform:  translateX(-100px);
+    }
+
+    #toggle:checked ~ .header__overlay{
+        right: 50%;
+        left: 0;
+    }
+
+    .header__overlay {
+        right: 100%;
+        left: -100%;
+    }
+
+    .header__links {
+        display: grid;
+    }
+}

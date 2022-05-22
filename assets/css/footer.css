@@ -1,0 +1,42 @@
+@import 'variables.css';
+@import 'base.css';
+
+.footer {
+    padding: 2.5rem 0;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;    
+}
+
+.footer__links {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1.5rem;
+    justify-content: center;
+}
+
+.footer__link {
+    color: var(--alternative-color);
+}
+
+.footer__link:hover {
+    color: var(--first-color);
+    cursor: pointer;
+}
+
+.footer__info {
+    display: grid;
+    gap: .5rem;
+    font-family: var(--second-font);
+    font-size: var(--tiny-font-size);
+    font-weight: var(--font-medium);
+    color: var(--alternative-color);
+}
+
+/*=============== RESPONSIVE ===============*/
+@media screen and (min-width: 1024px) { 
+    .footer {
+        margin: 2rem 0 0 4rem;
+    }
+}
